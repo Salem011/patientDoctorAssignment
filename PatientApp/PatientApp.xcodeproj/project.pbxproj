@@ -13,6 +13,7 @@
 		4F2CC1A0204ADA0B00A6753C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CC19E204ADA0B00A6753C /* LaunchScreen.storyboard */; };
 		4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */; };
 		4F2CC1B6204AE48500A6753C /* DoctorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */; };
+		4F8C0E00204AEC34004B74AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8C0DFF204AEC34004B74AE /* GoogleService-Info.plist */; };
 		8F6FE0CF80A23CAD7FBF4850 /* Pods_PatientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E86ECA1BC9F1D09D634F9D5 /* Pods_PatientApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4F2CC1A1204ADA0B00A6753C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorsViewController.swift; path = ViewControllers/DoctorsViewController.swift; sourceTree = "<group>"; };
 		4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorViewCell.swift; path = Views/DoctorViewCell.swift; sourceTree = "<group>"; };
+		4F8C0DFF204AEC34004B74AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C8F80D449E21B3C93149ADD /* Pods-PatientApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.release.xcconfig"; sourceTree = "<group>"; };
 		986FE0A1CBBFED23EBAC431E /* Pods-PatientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 			children = (
 				4F2CC195204ADA0B00A6753C /* AppDelegate.swift */,
 				4F2CC1A1204ADA0B00A6753C /* Info.plist */,
+				4F8C0DFF204AEC34004B74AE /* GoogleService-Info.plist */,
 				4F2CC19E204ADA0B00A6753C /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F2CC1A0204ADA0B00A6753C /* LaunchScreen.storyboard in Resources */,
+				4F8C0E00204AEC34004B74AE /* GoogleService-Info.plist in Resources */,
 				4F2CC19D204ADA0B00A6753C /* Assets.xcassets in Resources */,
 				4F2CC19B204ADA0B00A6753C /* Main.storyboard in Resources */,
 			);
