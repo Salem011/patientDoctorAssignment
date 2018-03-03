@@ -10,14 +10,13 @@ import UIKit
 import FSCalendar
 
 protocol CalendarDelegate: class {
-    func didSelectDate (date: Date)
+    func didSelectDate (date: String)
 }
 
 class CalendarViewController: UIViewController, FSCalendarDelegate {
 
     weak var delegate: CalendarDelegate?
     
-    var selectedDate: Date?
     var formatter = DateFormatter()
     
     override func viewDidLoad() {
@@ -37,7 +36,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
             displayErrorAlert()
             return
         }
-        selectedDate = date
         displayConfirmationAlert(for: formatter.string(from: date))
     }
     
@@ -45,12 +43,11 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     func displayConfirmationAlert (for date: String) {
         let alert = UIAlertController(title: "Confirm Reservation", message: "Are you sure you want to reserve an appointment at: \(date)?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: {void in
-            self.delegate?.didSelectDate(date: self.selectedDate!)
+            self.delegate?.didSelectDate(date: date)
             self.navigationController?.popViewController(animated: true)
         })
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: {void in
-            self.selectedDate = nil
-        })
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
         alert.addAction(yesAction)
         alert.addAction(noAction)
         self.present(alert, animated: true, completion: nil)

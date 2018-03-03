@@ -14,7 +14,7 @@ import FirebaseAuth
 protocol DoctorsViewModelInterface {
     func loadDoctors ()
     
-    func createAppointment(for drIndex: Int, at date: Date)
+    func createAppointment(for drIndex: Int, at date: String)
     
     func getDoctorsCount () -> Int
     func getDoctorName(at index: Int) -> String
@@ -25,6 +25,9 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     
     var view: DoctorsViewInterface!
     var doctors = [Doctor]()
+    
+    let patientId = "sk132GM6DJ56H7qICzqt"
+    let db = Firestore.firestore()
     
     func loadDoctors() {
         
@@ -40,7 +43,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     }
     
     func loadDoctorsDocument () {
-        let db = Firestore.firestore()
+       
         db.collection("doctors").getDocuments { (snapshot, error) in
             if let error = error {
                 self.view.displayError(with: error.localizedDescription)
@@ -57,12 +60,40 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
     }
     
-    func createAppointment(for drIndex: Int, at date: Date) {
+    func createAppointment(for drIndex: Int, at date: String) {
         let doctor = doctors[drIndex]
         // TODO: handle appointment creation
         /*
          first check if that dr has an appointment at the same date and then create it if he doesn't have a one
          */
+        
+        db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).getDocuments { (snapshot, error) in
+            var dateIsAVailable = true
+            for reservation in snapshot!.documents {
+                if let reservationDate = reservation.data()["date"] as? String, reservationDate == date {
+                    dateIsAVailable = false
+                    break
+                }
+            }
+            if dateIsAVailable {
+                // Create the reservation
+                self.createReservationDocument(for: doctor.id, at: date)
+                return
+            }
+            // date is not valid
+            self.view.displayError(with: "The appointment is not available. Please select another date")
+        }
+        
+    }
+    
+    func createReservationDocument (for doctorId: String, at date: String) {
+        db.collection("reservations").addDocument(data: ["doctorId": doctorId, "patientId": patientId, "date": date, "status": "pending"]) { (error) in
+            if let error = error {
+                self.view.displayError(with: error.localizedDescription)
+                return
+            }
+            self.view.appointmentCreated()
+        }
     }
     
     func getDoctorsCount() -> Int {

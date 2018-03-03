@@ -64,7 +64,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     }
     
     // MARK: - Calendar Delegate
-    func didSelectDate(date: Date) {
+    func didSelectDate(date: String) {
         print("Selected Date for appointment: \(date)")
         // TODO: display progress hud here
         viewModel.createAppointment(for: currentSelectedDrIndex, at: date)
@@ -77,6 +77,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     }
     
     func displayError(with message: String) {
+        MBProgressHUD.hide(for: self.view, animated: true)
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
