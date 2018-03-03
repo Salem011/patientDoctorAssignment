@@ -16,7 +16,7 @@ protocol DoctorsViewModelInterface {
     
     func getDoctorsCount () -> Int
     func getDoctorName(at index: Int) -> String
-    func getImageUrl(at index: Int) -> String
+    func getImageUrl(at index: Int) -> URL?
 }
 
 class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
@@ -65,8 +65,11 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         return doctors[index].name
     }
     
-    func getImageUrl(at index: Int) -> String {
-        return doctors[index].imageUrl ?? ""
+    func getImageUrl(at index: Int) -> URL? {
+        guard let urlString = doctors[index].imageUrl else {
+            return nil
+        }
+        return URL(string: urlString)
     }
     
     

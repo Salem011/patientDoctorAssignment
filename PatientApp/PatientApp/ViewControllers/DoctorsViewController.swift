@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MBProgressHUD
+import SDWebImage
+
 
 private let reuseIdentifier = "doctorCell"
 
@@ -27,7 +30,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
         collectionView!.collectionViewLayout = collectioViewLayout
         
         self.title = "Find a Doctor"
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         viewModel.loadDoctors()
     }
 
@@ -53,6 +56,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DoctorViewCell
     
         cell.doctorNameLabel.text = viewModel.getDoctorName(at: indexPath.row)
+        cell.doctorImageView.sd_setImage(with: viewModel.getImageUrl(at: indexPath.row), completed: nil)
         
         return cell
     }
@@ -61,7 +65,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
 
     // MARK: - DoctorsViewInterface
     func doctorsAreLoaded() {
-        // TODO: hide loader
+        MBProgressHUD.hide(for: self.view, animated: true)
         self.collectionView!.reloadData()
     }
     
