@@ -14,6 +14,8 @@
 		4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */; };
 		4F2CC1B6204AE48500A6753C /* DoctorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */; };
 		4F8C0E00204AEC34004B74AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8C0DFF204AEC34004B74AE /* GoogleService-Info.plist */; };
+		4F8C0E04204AF0FA004B74AE /* DoctorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E03204AF0FA004B74AE /* DoctorsViewModel.swift */; };
+		4F8C0E07204AF29C004B74AE /* DoctorsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E06204AF29C004B74AE /* DoctorsRouter.swift */; };
 		8F6FE0CF80A23CAD7FBF4850 /* Pods_PatientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E86ECA1BC9F1D09D634F9D5 /* Pods_PatientApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorsViewController.swift; path = ViewControllers/DoctorsViewController.swift; sourceTree = "<group>"; };
 		4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorViewCell.swift; path = Views/DoctorViewCell.swift; sourceTree = "<group>"; };
 		4F8C0DFF204AEC34004B74AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4F8C0E03204AF0FA004B74AE /* DoctorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewModel.swift; sourceTree = "<group>"; };
+		4F8C0E06204AF29C004B74AE /* DoctorsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsRouter.swift; sourceTree = "<group>"; };
 		5C8F80D449E21B3C93149ADD /* Pods-PatientApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.release.xcconfig"; sourceTree = "<group>"; };
 		986FE0A1CBBFED23EBAC431E /* Pods-PatientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,10 +69,11 @@
 		4F2CC194204ADA0B00A6753C /* PatientApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F8C0E05204AF28B004B74AE /* Routers */,
+				4F8C0E02204AF0E8004B74AE /* ViewModels */,
 				4F2CC1B4204AE44900A6753C /* Storyboards */,
 				4F2CC1AF204ADC4E00A6753C /* ViewControllers */,
 				4F2CC1AE204ADC4800A6753C /* Views */,
-				4F2CC1B0204ADC8C00A6753C /* ViewModels */,
 				4F2CC1AD204ADC4100A6753C /* Models */,
 				4F2CC1AC204ADC1900A6753C /* Supporting Files */,
 				4F2CC19C204ADA0B00A6753C /* Assets.xcassets */,
@@ -110,19 +115,28 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		4F2CC1B0204ADC8C00A6753C /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ViewModels;
-			sourceTree = "<group>";
-		};
 		4F2CC1B4204AE44900A6753C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				4F2CC199204ADA0B00A6753C /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		4F8C0E02204AF0E8004B74AE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4F8C0E03204AF0FA004B74AE /* DoctorsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4F8C0E05204AF28B004B74AE /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				4F8C0E06204AF29C004B74AE /* DoctorsRouter.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		83D332DD61790E38A5D4D8BF /* Pods */ = {
@@ -269,6 +283,8 @@
 				4F2CC1B6204AE48500A6753C /* DoctorViewCell.swift in Sources */,
 				4F2CC196204ADA0B00A6753C /* AppDelegate.swift in Sources */,
 				4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */,
+				4F8C0E07204AF29C004B74AE /* DoctorsRouter.swift in Sources */,
+				4F8C0E04204AF0FA004B74AE /* DoctorsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

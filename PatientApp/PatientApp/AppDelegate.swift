@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let db = Firestore.firestore()
         
+        
+        let rootVc = DoctorsRouter.instantiateDoctorsViewController()
+        if let window = self.window {
+            window.rootViewController = rootVc
+        }
         return true
     }
 
