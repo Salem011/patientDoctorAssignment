@@ -28,7 +28,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         
         db.collection("doctors").getDocuments { (snapshot, error) in
             if let error = error {
-                // TODO: display error message to the user
+                self.view.displayError(with: error.localizedDescription)
                 print("Error retrieving doctors: \(error)")
             }else {
                 for document in snapshot!.documents {
@@ -37,7 +37,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
                         self.doctors.append(doctor)
                     }
                 }
-                // TODO: call view and reload content
+                self.view.doctorsAreLoaded()
             }
         }
     }
