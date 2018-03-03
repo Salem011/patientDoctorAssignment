@@ -18,9 +18,10 @@ protocol DoctorsViewInterface {
     func displayError(with message: String)
 }
 
-class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
+class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, CalendarDelegate {
 
     var viewModel: DoctorsViewModelInterface!
+    var currentSelectedDrIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,19 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
     }
 
     // MARK: - UICollectionViewDelegate
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentSelectedDrIndex = indexPath.row
+        let calendarVC = DoctorsRouter.instantiateCalendarViewController() as! CalendarViewController
+        calendarVC.delegate = self
+        self.navigationController?.pushViewController(calendarVC, animated: true)
+    }
+    
+    // MARK: - Calendar Delegate
+    func didSelectDate(date: Date) {
+        // TODO: create the appointment!
+        print("Selected Date for appointment: \(date)")
+    }
+    
     // MARK: - DoctorsViewInterface
     func doctorsAreLoaded() {
         MBProgressHUD.hide(for: self.view, animated: true)
