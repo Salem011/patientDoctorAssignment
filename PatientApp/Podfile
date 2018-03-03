@@ -6,4 +6,6 @@ target ‘PatientApp’ do
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'Firebase/Auth'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'SDWebImage', '~> 4.0'
 end
