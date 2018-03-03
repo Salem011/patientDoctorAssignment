@@ -16,6 +16,8 @@ private let reuseIdentifier = "doctorCell"
 protocol DoctorsViewInterface {
     func doctorsAreLoaded ()
     func displayError(with message: String)
+    
+    func appointmentCreated ()
 }
 
 class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, CalendarDelegate {
@@ -35,19 +37,10 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
         viewModel.loadDoctors()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-  
     // MARK: - UICollectionViewDataSource
-
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getDoctorsCount()
@@ -72,8 +65,9 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     
     // MARK: - Calendar Delegate
     func didSelectDate(date: Date) {
-        // TODO: create the appointment!
         print("Selected Date for appointment: \(date)")
+        // TODO: display progress hud here
+        viewModel.createAppointment(for: currentSelectedDrIndex, at: date)
     }
     
     // MARK: - DoctorsViewInterface
@@ -84,6 +78,13 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     
     func displayError(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func appointmentCreated() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+        let alert = UIAlertController(title: "Success", message: "Appointment Created Successfuly. You will receive a notification once the dr accepts/rejects it", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

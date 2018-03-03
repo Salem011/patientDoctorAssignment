@@ -14,6 +14,8 @@ import FirebaseAuth
 protocol DoctorsViewModelInterface {
     func loadDoctors ()
     
+    func createAppointment(for drIndex: Int, at date: Date)
+    
     func getDoctorsCount () -> Int
     func getDoctorName(at index: Int) -> String
     func getImageUrl(at index: Int) -> URL?
@@ -35,7 +37,6 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
                 self.loadDoctorsDocument()
             }
         }
-        
     }
     
     func loadDoctorsDocument () {
@@ -56,7 +57,14 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
     }
     
-    // MARK: - ViewModelInterface
+    func createAppointment(for drIndex: Int, at date: Date) {
+        let doctor = doctors[drIndex]
+        // TODO: handle appointment creation
+        /*
+         first check if that dr has an appointment at the same date and then create it if he doesn't have a one
+         */
+    }
+    
     func getDoctorsCount() -> Int {
         return doctors.count
     }
