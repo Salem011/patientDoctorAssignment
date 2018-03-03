@@ -22,5 +22,10 @@ class DoctorsRouter {
         return doctorsNavigation
     }
     
+    static func instantiateCalendarViewController () -> UIViewController {
+        let calendarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CalendarViewController") as! CalendarViewController
+        return calendarVC
+    }
+    
 }
 

@@ -59,7 +59,6 @@
                                 <connections>
                                     <outlet property="doctorImageView" destination="lPd-ta-wt8" id="UOM-dD-g1d"/>
                                     <outlet property="doctorNameLabel" destination="xw5-m2-XYa" id="0Qi-yI-7jV"/>
-                                    <segue destination="JzF-HS-7wN" kind="show" id="DEt-Aj-Hwv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -76,7 +75,7 @@
         <!--Delegate-->
         <scene sceneID="u0v-iQ-NFr">
             <objects>
-                <viewController id="JzF-HS-7wN" customClass="CalendarViewController" customModule="PatientApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarViewController" id="JzF-HS-7wN" customClass="CalendarViewController" customModule="PatientApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oNu-S0-rOf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
