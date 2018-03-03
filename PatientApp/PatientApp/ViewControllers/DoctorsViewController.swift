@@ -12,7 +12,8 @@ import FirebaseAuth
 private let reuseIdentifier = "doctorCell"
 
 protocol DoctorsViewInterface {
-    
+    func doctorsAreLoaded ()
+    func displayError(with message: String)
 }
 
 class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
@@ -25,6 +26,9 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
         let collectioViewLayout = UICollectionViewFlowLayout()
         collectioViewLayout.itemSize = CGSize(width: 140, height: 140)
         collectionView!.collectionViewLayout = collectioViewLayout
+        
+        self.title = "Find a Doctor"
+        
         Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
             self.viewModel.loadDoctors()
         }
@@ -60,5 +64,14 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
     // MARK: - UICollectionViewDelegate
 
     // MARK: - DoctorsViewInterface
-
+    func doctorsAreLoaded() {
+        // TODO: hide loader
+        self.collectionView!.reloadData()
+    }
+    
+    func displayError(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
