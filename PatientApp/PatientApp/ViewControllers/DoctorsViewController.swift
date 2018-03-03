@@ -16,6 +16,8 @@ protocol DoctorsViewInterface {
 
 class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
 
+    var viewModel: DoctorsViewModelInterface!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 

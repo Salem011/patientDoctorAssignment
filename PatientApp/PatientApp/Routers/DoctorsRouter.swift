@@ -14,6 +14,10 @@ class DoctorsRouter {
         
         let doctorsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoctorsViewController") as! DoctorsViewController
         
+        let doctorsViewModel = DoctorsViewModel()
+        doctorsViewModel.view = doctorsVC
+        doctorsVC.viewModel = doctorsViewModel
+        
         let doctorsNavigation = UINavigationController(rootViewController: doctorsVC)
         return doctorsNavigation
     }
