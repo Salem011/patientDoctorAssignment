@@ -66,7 +66,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     // MARK: - Calendar Delegate
     func didSelectDate(date: String) {
         print("Selected Date for appointment: \(date)")
-        // TODO: display progress hud here
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         viewModel.createAppointment(for: currentSelectedDrIndex, at: date)
     }
     
