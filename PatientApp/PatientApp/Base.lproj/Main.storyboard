@@ -24,7 +24,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="doctorCell" id="OI4-Bj-Lcv">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="doctorCell" id="OI4-Bj-Lcv" customClass="DoctorViewCell" customModule="PatientApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -56,6 +56,10 @@
                                     <constraint firstItem="xw5-m2-XYa" firstAttribute="leading" secondItem="OI4-Bj-Lcv" secondAttribute="leading" constant="1" id="mLP-3v-Nrj"/>
                                 </constraints>
                                 <size key="customSize" width="140" height="140"/>
+                                <connections>
+                                    <outlet property="doctorImageView" destination="lPd-ta-wt8" id="UOM-dD-g1d"/>
+                                    <outlet property="doctorNameLabel" destination="xw5-m2-XYa" id="0Qi-yI-7jV"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

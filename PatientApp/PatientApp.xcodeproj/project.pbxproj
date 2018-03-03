@@ -12,6 +12,7 @@
 		4F2CC19D204ADA0B00A6753C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CC19C204ADA0B00A6753C /* Assets.xcassets */; };
 		4F2CC1A0204ADA0B00A6753C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CC19E204ADA0B00A6753C /* LaunchScreen.storyboard */; };
 		4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */; };
+		4F2CC1B6204AE48500A6753C /* DoctorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4F2CC19F204ADA0B00A6753C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F2CC1A1204ADA0B00A6753C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorsViewController.swift; path = ViewControllers/DoctorsViewController.swift; sourceTree = "<group>"; };
+		4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DoctorViewCell.swift; path = Views/DoctorViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		4F2CC194204ADA0B00A6753C /* PatientApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F2CC1B4204AE44900A6753C /* Storyboards */,
 				4F2CC1AF204ADC4E00A6753C /* ViewControllers */,
 				4F2CC1AE204ADC4800A6753C /* Views */,
 				4F2CC1B0204ADC8C00A6753C /* ViewModels */,
@@ -84,7 +87,7 @@
 		4F2CC1AE204ADC4800A6753C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4F2CC199204ADA0B00A6753C /* Main.storyboard */,
+				4F2CC1B5204AE48500A6753C /* DoctorViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -102,6 +105,14 @@
 			children = (
 			);
 			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		4F2CC1B4204AE44900A6753C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4F2CC199204ADA0B00A6753C /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2CC1B6204AE48500A6753C /* DoctorViewCell.swift in Sources */,
 				4F2CC196204ADA0B00A6753C /* AppDelegate.swift in Sources */,
 				4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */,
 			);

@@ -19,7 +19,7 @@ class DoctorsViewController: UICollectionViewController {
         collectioViewLayout.itemSize = CGSize(width: 140, height: 140)
         collectionView!.collectionViewLayout = collectioViewLayout
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(DoctorViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     }
 
@@ -42,7 +42,7 @@ class DoctorsViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DoctorViewCell
     
         // Configure the cell
     
