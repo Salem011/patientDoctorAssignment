@@ -25,9 +25,9 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
         let collectioViewLayout = UICollectionViewFlowLayout()
         collectioViewLayout.itemSize = CGSize(width: 140, height: 140)
         collectionView!.collectionViewLayout = collectioViewLayout
-//        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
+        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
             self.viewModel.loadDoctors()
-//        }
+        }
         
     }
 
