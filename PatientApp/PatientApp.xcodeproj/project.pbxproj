@@ -17,6 +17,7 @@
 		4F8C0E04204AF0FA004B74AE /* DoctorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E03204AF0FA004B74AE /* DoctorsViewModel.swift */; };
 		4F8C0E07204AF29C004B74AE /* DoctorsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E06204AF29C004B74AE /* DoctorsRouter.swift */; };
 		4F8C0E09204B056A004B74AE /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E08204B056A004B74AE /* Doctor.swift */; };
+		4F8C0E0C204B265C004B74AE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C0E0B204B265C004B74AE /* CalendarViewController.swift */; };
 		8F6FE0CF80A23CAD7FBF4850 /* Pods_PatientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E86ECA1BC9F1D09D634F9D5 /* Pods_PatientApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		4F8C0E06204AF29C004B74AE /* DoctorsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsRouter.swift; sourceTree = "<group>"; };
 		4F8C0E08204B056A004B74AE /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Doctor.swift; path = Models/Doctor.swift; sourceTree = "<group>"; };
 		4F8C0E0A204B0F91004B74AE /* PatientApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PatientApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		4F8C0E0B204B265C004B74AE /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = ViewControllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		5C8F80D449E21B3C93149ADD /* Pods-PatientApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.release.xcconfig"; sourceTree = "<group>"; };
 		986FE0A1CBBFED23EBAC431E /* Pods-PatientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientApp/Pods-PatientApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2CC1B1204ADCFF00A6753C /* DoctorsViewController.swift */,
+				4F8C0E0B204B265C004B74AE /* CalendarViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				4F8C0E09204B056A004B74AE /* Doctor.swift in Sources */,
 				4F2CC1B2204ADCFF00A6753C /* DoctorsViewController.swift in Sources */,
 				4F8C0E07204AF29C004B74AE /* DoctorsRouter.swift in Sources */,
+				4F8C0E0C204B265C004B74AE /* CalendarViewController.swift in Sources */,
 				4F8C0E04204AF0FA004B74AE /* DoctorsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

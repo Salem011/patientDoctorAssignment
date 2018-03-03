@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,6 +59,7 @@
                                 <connections>
                                     <outlet property="doctorImageView" destination="lPd-ta-wt8" id="UOM-dD-g1d"/>
                                     <outlet property="doctorNameLabel" destination="xw5-m2-XYa" id="0Qi-yI-7jV"/>
+                                    <segue destination="JzF-HS-7wN" kind="show" id="DEt-Aj-Hwv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -70,6 +72,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9M-f9-dZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130" y="134"/>
+        </scene>
+        <!--Delegate-->
+        <scene sceneID="u0v-iQ-NFr">
+            <objects>
+                <viewController id="JzF-HS-7wN" customClass="CalendarViewController" customModule="PatientApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oNu-S0-rOf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5N-G2-cYf" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="40" width="335" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="A1X-O0-0Bz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="JzF-HS-7wN" id="BAd-WB-I1x"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N5N-G2-cYf" firstAttribute="centerX" secondItem="oNu-S0-rOf" secondAttribute="centerX" id="4Tt-eW-tHR"/>
+                            <constraint firstItem="N5N-G2-cYf" firstAttribute="leading" secondItem="QaU-8f-TYS" secondAttribute="leading" constant="20" id="IJV-ns-ZcL"/>
+                            <constraint firstItem="N5N-G2-cYf" firstAttribute="top" secondItem="QaU-8f-TYS" secondAttribute="top" constant="20" id="Snx-a4-Ept"/>
+                            <constraint firstItem="QaU-8f-TYS" firstAttribute="trailing" secondItem="N5N-G2-cYf" secondAttribute="trailing" constant="20" id="q62-HF-JIf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QaU-8f-TYS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQN-vg-8vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="885.60000000000002" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
