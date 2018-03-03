@@ -12,6 +12,10 @@ import Firebase
 
 protocol DoctorsViewModelInterface {
     func loadDoctors ()
+    
+    func getDoctorsCount () -> Int
+    func getDoctorName(at index: Int) -> String
+    func getImageUrl(at index: Int) -> String
 }
 
 class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
@@ -36,7 +40,20 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
                 // TODO: call view and reload content
             }
         }
-        
     }
+    
+    // MARK: - ViewModelInterface
+    func getDoctorsCount() -> Int {
+        return doctors.count
+    }
+    
+    func getDoctorName(at index: Int) -> String {
+        return doctors[index].name
+    }
+    
+    func getImageUrl(at index: Int) -> String {
+        return doctors[index].imageUrl ?? ""
+    }
+    
     
 }
