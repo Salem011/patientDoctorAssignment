@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol DoctorsViewModelInterface {
+    
+}
+
+class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
+    
+    var view: DoctorsViewInterface!
+    
+    
+    
+}

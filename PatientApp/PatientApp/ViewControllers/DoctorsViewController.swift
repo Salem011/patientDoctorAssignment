@@ -10,7 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "doctorCell"
 
-class DoctorsViewController: UICollectionViewController {
+protocol DoctorsViewInterface {
+    
+}
+
+class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,5 +55,6 @@ class DoctorsViewController: UICollectionViewController {
 
     // MARK: - UICollectionViewDelegate
 
+    // MARK: - DoctorsViewInterface
 
 }
