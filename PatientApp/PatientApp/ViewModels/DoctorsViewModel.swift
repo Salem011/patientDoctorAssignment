@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 
 protocol DoctorsViewModelInterface {
@@ -24,8 +25,21 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     var doctors = [Doctor]()
     
     func loadDoctors() {
-        let db = Firestore.firestore()
         
+        
+        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
+            if let error = error {
+                self.view.displayError(with: error.localizedDescription)
+            }else {
+                // user is logged in, load the data
+                self.loadDoctorsDocument()
+            }
+        }
+        
+    }
+    
+    func loadDoctorsDocument () {
+        let db = Firestore.firestore()
         db.collection("doctors").getDocuments { (snapshot, error) in
             if let error = error {
                 self.view.displayError(with: error.localizedDescription)

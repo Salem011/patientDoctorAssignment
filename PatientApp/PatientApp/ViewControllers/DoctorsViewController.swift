@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 private let reuseIdentifier = "doctorCell"
 
@@ -29,10 +28,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface {
         
         self.title = "Find a Doctor"
         
-        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
-            self.viewModel.loadDoctors()
-        }
-        
+        viewModel.loadDoctors()
     }
 
     override func didReceiveMemoryWarning() {
