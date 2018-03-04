@@ -14,11 +14,13 @@ struct Appointment {
     var doctorId: String
     var patientId: String
     var status: String
+    var date: String
     
     init?(id: String, dictionary: [String : Any]) {
         guard let doctorId = dictionary["doctorId"] as? String,
             let patientId = dictionary["patientId"] as? String,
-        let status = dictionary["status"] as? String else {
+            let status = dictionary["status"] as? String,
+            let date = dictionary["date"] as? String else {
                 return nil
         }
         
@@ -26,6 +28,7 @@ struct Appointment {
         self.doctorId = doctorId
         self.patientId = patientId
         self.status = status
+        self.date = date 
     }
     
     
