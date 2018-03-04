@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09311556C80074850544CEB9 /* Pods_DoctorApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */; };
 		4F22B1AC204BAF9D00682E93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1AB204BAF9D00682E93 /* AppDelegate.swift */; };
 		4F22B1B1204BAF9D00682E93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1AF204BAF9D00682E93 /* Main.storyboard */; };
 		4F22B1B3204BAF9D00682E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1B2204BAF9D00682E93 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00320D5B9654DA92268E9CCB /* Pods-DoctorApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp.release.xcconfig"; sourceTree = "<group>"; };
 		4F22B1A8204BAF9D00682E93 /* DoctorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F22B1AB204BAF9D00682E93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F22B1B0204BAF9D00682E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		4F22B1B5204BAF9D00682E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F22B1B7204BAF9D00682E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F22B1C4204BB1D300682E93 /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewController.swift; sourceTree = "<group>"; };
+		673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09311556C80074850544CEB9 /* Pods_DoctorApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2378D4B9138CA6D6E7705AA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		499737581E70FEB4AC926661 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */,
+				00320D5B9654DA92268E9CCB /* Pods-DoctorApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4F22B19F204BAF9D00682E93 = {
 			isa = PBXGroup;
 			children = (
 				4F22B1AA204BAF9D00682E93 /* DoctorApp */,
 				4F22B1A9204BAF9D00682E93 /* Products */,
+				499737581E70FEB4AC926661 /* Pods */,
+				2378D4B9138CA6D6E7705AA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,9 +151,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F22B1BA204BAF9D00682E93 /* Build configuration list for PBXNativeTarget "DoctorApp" */;
 			buildPhases = (
+				A52C08428726F7851DD26CAA /* [CP] Check Pods Manifest.lock */,
 				4F22B1A4204BAF9D00682E93 /* Sources */,
 				4F22B1A5204BAF9D00682E93 /* Frameworks */,
 				4F22B1A6204BAF9D00682E93 /* Resources */,
+				D12C5D6635A566AA2FA255F5 /* [CP] Embed Pods Frameworks */,
+				A3C05E7C49AF3BC409CD957F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,6 +213,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3C05E7C49AF3BC409CD957F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A52C08428726F7851DD26CAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D12C5D6635A566AA2FA255F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F22B1A4204BAF9D00682E93 /* Sources */ = {
@@ -328,6 +403,7 @@
 		};
 		4F22B1BB204BAF9D00682E93 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,6 +419,7 @@
 		};
 		4F22B1BC204BAF9D00682E93 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00320D5B9654DA92268E9CCB /* Pods-DoctorApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
