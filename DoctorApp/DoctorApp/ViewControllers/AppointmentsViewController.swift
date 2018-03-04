@@ -8,8 +8,14 @@
 
 import UIKit
 
-class AppointmentsViewController: UITableViewController {
+protocol AppointmentsViewInterface {
+    
+}
 
+class AppointmentsViewController: UITableViewController, AppointmentsViewInterface {
+
+    var viewModel: AppointmentsViewModelInterface!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

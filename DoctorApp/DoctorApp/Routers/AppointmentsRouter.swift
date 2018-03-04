@@ -14,6 +14,10 @@ class AppointmentsRouter {
         
         let appointmentsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppointmentsViewController") as! AppointmentsViewController
         
+        let viewModel = AppointmentsViewModel()
+        appointmentsVC.viewModel = viewModel
+        viewModel.view = appointmentsVC
+        
         let navigation = UINavigationController(rootViewController: appointmentsVC)
         return navigation
     }
