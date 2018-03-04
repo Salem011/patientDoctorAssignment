@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
-
+import UserNotifications
 
 protocol DoctorsViewModelInterface {
     func loadDoctors ()
@@ -30,7 +30,6 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     let db = Firestore.firestore()
     
     func loadDoctors() {
-        
         
         Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
             if let error = error {
@@ -62,11 +61,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     
     func createAppointment(for drIndex: Int, at date: String) {
         let doctor = doctors[drIndex]
-        // TODO: handle appointment creation
-        /*
-         first check if that dr has an appointment at the same date and then create it if he doesn't have a one
-         */
-        
+      
         db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).getDocuments { (snapshot, error) in
             var dateIsAVailable = true
             for reservation in snapshot!.documents {
@@ -78,6 +73,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
             if dateIsAVailable {
                 // Create the reservation
                 self.createReservationDocument(for: doctor.id, at: date)
+                
                 return
             }
             // date is not valid
@@ -87,13 +83,39 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     }
     
     func createReservationDocument (for doctorId: String, at date: String) {
-        db.collection("reservations").addDocument(data: ["doctorId": doctorId, "patientId": patientId, "date": date, "status": "pending"]) { (error) in
+        var reservation: DocumentReference? = nil
+        reservation = db.collection("reservations").addDocument(data: ["doctorId": doctorId, "patientId": patientId, "date": date, "status": "pending"]) { (error) in
+            
             if let error = error {
                 self.view.displayError(with: error.localizedDescription)
                 return
             }
+            
             self.view.appointmentCreated()
+            // Listen to the reservation status modification
+            self.db.collection("reservations").document("\(reservation!.documentID)").addSnapshotListener({ (snapshot, error) in
+                if let newStatus = snapshot?.data()?["status"] as? String, newStatus != "pending" {
+                    self.notifyThePatient(status: newStatus)
+                }
+            })
         }
+    }
+    
+    func notifyThePatient (status: String) {
+        let content = UNMutableNotificationContent()
+        content.title = "Reservation Update"
+        content.body = "Your reservation is \(status)."
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 3.0, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "ReservationStatusChanged", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                print("Posting notification failed: \(error.localizedDescription)")
+            }
+        })
     }
     
     func getDoctorsCount() -> Int {
@@ -110,6 +132,5 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
         return URL(string: urlString)
     }
-    
-    
+ 
 }
