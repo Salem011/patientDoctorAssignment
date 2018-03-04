@@ -32,6 +32,7 @@
 		4F22B1C8204BB57600682E93 /* AppointmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsRouter.swift; sourceTree = "<group>"; };
 		4F22B1CA204BB6CA00682E93 /* AppointmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewModel.swift; sourceTree = "<group>"; };
 		4F22B1CC204BB8F700682E93 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		4F22B1CF204BBABF00682E93 /* DoctorApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoctorApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +102,7 @@
 		4F22B1BD204BB0BB00682E93 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4F22B1CF204BBABF00682E93 /* DoctorApp-Bridging-Header.h */,
 				4F22B1AB204BAF9D00682E93 /* AppDelegate.swift */,
 				4F22B1B4204BAF9D00682E93 /* LaunchScreen.storyboard */,
 				4F22B1B7204BAF9D00682E93 /* Info.plist */,
@@ -428,6 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hungerstation.assignment.salem.DoctorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DoctorApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -444,6 +447,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hungerstation.assignment.salem.DoctorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DoctorApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
