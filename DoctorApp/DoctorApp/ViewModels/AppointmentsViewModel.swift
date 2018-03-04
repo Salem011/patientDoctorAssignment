@@ -9,8 +9,11 @@
 import Foundation
 import FirebaseFirestore
 
+
 protocol AppointmentsViewModelInterface {
     func loadAppointments ()
+    func listenForMyAppointments ()
+    func updateReservationStatus(to newStatus: String)
     
     func getAppointmentsCount () -> Int
     func getTitleTextForAppointment(at index: Int) -> String
@@ -25,6 +28,8 @@ class AppointmentsViewModel: NSObject, AppointmentsViewModelInterface {
 
     let currentDoctorId = "AAN4qeFVS4IxGzCkkSq0"
     var appointments = [Appointment]()
+    
+    var createdReservationDocId = ""
     
     func loadAppointments() {
         db.collection("reservations").whereField("doctorId", isEqualTo: currentDoctorId).getDocuments { (snapshot, error) in
@@ -43,6 +48,29 @@ class AppointmentsViewModel: NSObject, AppointmentsViewModelInterface {
             }
             self.view.appointmentsAreLoaded()
         }
+    }
+    
+    func listenForMyAppointments() {
+        db.collection("reservations").whereField("doctorId", isEqualTo: currentDoctorId).addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                return
+            }
+            snapshot.documentChanges.forEach({ (change) in
+                if change.type == .added && change.document.data()["status"] as! String == "pending" {
+                    self.createdReservationDocId = change.document.documentID
+                    let docData = change.document.data()
+                    self.view.displayNotificationAlert(with: "The patient: \(docData["patientId"] as? String ?? "N/A") requested an appointment at: \(docData["date"] as? String ?? "N/A")")
+                }
+            })
+            
+        }
+    }
+    
+    func updateReservationStatus(to newStatus: String) {
+        if createdReservationDocId == "" {
+            return
+        }
+        db.collection("reservations").document(createdReservationDocId).setData(["status": newStatus], options: SetOptions.merge())
     }
     
     func getAppointmentsCount() -> Int {

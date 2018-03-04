@@ -12,6 +12,8 @@ import MBProgressHUD
 protocol AppointmentsViewInterface {
     func appointmentsAreLoaded ()
     func displayError(with message: String)
+    
+    func displayNotificationAlert (with message: String)
 }
 
 class AppointmentsViewController: UITableViewController, AppointmentsViewInterface {
@@ -27,6 +29,7 @@ class AppointmentsViewController: UITableViewController, AppointmentsViewInterfa
         
         MBProgressHUD.showAdded(to: view, animated: true)
         viewModel.loadAppointments()
+        viewModel.listenForMyAppointments()
     }
 
 
@@ -63,6 +66,17 @@ class AppointmentsViewController: UITableViewController, AppointmentsViewInterfa
         MBProgressHUD.hide(for: self.view, animated: true)
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func displayNotificationAlert(with message: String) {
+        let alert = UIAlertController(title: "Appointment Request",message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: {void in
+            self.viewModel.updateReservationStatus(to: "accepted")
+        }))
+        alert.addAction(UIAlertAction(title: "Reject", style: .default, handler: {void in
+            self.viewModel.updateReservationStatus(to: "rejected")
+        }))
         self.present(alert, animated: true, completion: nil)
     }
 }
