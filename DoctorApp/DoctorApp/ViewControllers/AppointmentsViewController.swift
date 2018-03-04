@@ -1,5 +1,5 @@
 //
-//  DoctorsViewController.swift
+//  AppointmentsViewController.swift
 //  DoctorApp
 //
 //  Created by Salem Mohamed on 3/4/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoctorsViewController: UITableViewController {
+class AppointmentsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
