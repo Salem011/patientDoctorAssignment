@@ -13,6 +13,7 @@
 		4F22B1B3204BAF9D00682E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1B2204BAF9D00682E93 /* Assets.xcassets */; };
 		4F22B1B6204BAF9D00682E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1B4204BAF9D00682E93 /* LaunchScreen.storyboard */; };
 		4F22B1C5204BB1D300682E93 /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C4204BB1D300682E93 /* DoctorsViewController.swift */; };
+		4F22B1C7204BB42800682E93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4F22B1B5204BAF9D00682E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F22B1B7204BAF9D00682E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F22B1C4204BB1D300682E93 /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewController.swift; sourceTree = "<group>"; };
+		4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				4F22B1AB204BAF9D00682E93 /* AppDelegate.swift */,
 				4F22B1B4204BAF9D00682E93 /* LaunchScreen.storyboard */,
 				4F22B1B7204BAF9D00682E93 /* Info.plist */,
+				4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				4F22B1B6204BAF9D00682E93 /* LaunchScreen.storyboard in Resources */,
 				4F22B1B3204BAF9D00682E93 /* Assets.xcassets in Resources */,
 				4F22B1B1204BAF9D00682E93 /* Main.storyboard in Resources */,
+				4F22B1C7204BB42800682E93 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
