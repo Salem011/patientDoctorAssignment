@@ -13,8 +13,8 @@ import UserNotifications
 
 
 protocol DoctorsViewModelInterface {
-    func loadDoctors ()
     
+    func loadDoctors ()
     func createAppointment(for drIndex: Int, at date: String)
     
     func getDoctorsCount () -> Int
@@ -32,22 +32,8 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     
     let storage = Storage.storage()
     
+    // MARK: - Doctors
     func loadDoctors() {
-        
-//        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
-//            if let error = error {
-//                self.view.displayError(with: error.localizedDescription)
-//            }else {
-//                // user is logged in, load the data
-//                self.loadDoctorsDocument()
-//            }
-//        }
-        
-        loadDoctorsDocument()
-    }
-    
-    func loadDoctorsDocument () {
-       
         db.collection("doctors").getDocuments { (snapshot, error) in
             if let error = error {
                 self.view.displayError(with: error.localizedDescription)
@@ -64,24 +50,25 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
     }
     
+    // MARK: - Appointments
     func createAppointment(for drIndex: Int, at date: String) {
         let doctor = doctors[drIndex]
       
+        // Retrieve all reservations for the selected Dr and check if the selected date is not taken by any other reservation
         db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).getDocuments { (snapshot, error) in
-            var dateIsAVailable = true
+            var dateIsAvailable = true
             for reservation in snapshot!.documents {
                 if let reservationDate = reservation.data()["date"] as? String, reservationDate == date {
-                    dateIsAVailable = false
+                    dateIsAvailable = false
+                    self.view.displayError(with: "The appointment's date is not available. Please select another date")
                     break
                 }
             }
-            if dateIsAVailable {
-                // Create the reservation
+            
+            // Create the reservation
+            if dateIsAvailable {
                 self.createReservationDocument(for: doctor.id, at: date)
-                return
             }
-            // date is not valid
-            self.view.displayError(with: "The appointment is not available. Please select another date")
         }
         
     }
@@ -105,6 +92,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
     }
     
+    // MARK: - UserNotifications
     func notifyThePatient (status: String) {
         let content = UNMutableNotificationContent()
         content.title = "Reservation Update"
@@ -122,6 +110,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         })
     }
     
+    // MARK: - View Helping Functions
     func getDoctorsCount() -> Int {
         return doctors.count
     }
@@ -131,7 +120,6 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     }
     
     func getImageUrl(at index: Int) -> StorageReference {
-        
         let storageRef = storage.reference()
         return storageRef.child("\(doctors[index].imageUrl)")
     }
