@@ -13,27 +13,19 @@ struct Doctor {
     var id: String
     var name: String
     var speciality: String
-    var imageUrl: String?
-    
-    
-    var dictionary:[String:Any] {
-        return [
-            "name": name,
-            "speciality" : speciality,
-            "imageUrl" : imageUrl ?? ""
-        ]
-    }
+    var imageUrl: String
     
     init?(id: String, dictionary: [String : Any]) {
         guard let name = dictionary["name"] as? String,
-            let speciality = dictionary["speciality"] as? String else {
+            let speciality = dictionary["speciality"] as? String,
+            let imageUrl = dictionary ["imageUrl"] as? String else {
                 return nil
         }
         
         self.id = id
         self.name = name
         self.speciality = speciality
-        self.imageUrl = dictionary ["imageUrl"] as? String
+        self.imageUrl = imageUrl
     }
     
     

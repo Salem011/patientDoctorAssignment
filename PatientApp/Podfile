@@ -5,8 +5,8 @@ use_frameworks!
 target ‘PatientApp’ do
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
-    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'FirebaseUI/Storage'
     pod 'MBProgressHUD', '~> 1.0.0'
-    pod 'SDWebImage', '~> 4.0'
     pod 'FSCalendar'
 end

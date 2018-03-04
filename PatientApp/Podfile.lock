@@ -5,24 +5,20 @@ PODS:
   - BoringSSL/Implementation (9.2):
     - BoringSSL/Interface (= 9.2)
   - BoringSSL/Interface (9.2)
-  - Firebase/Auth (4.8.2):
-    - Firebase/Core
-    - FirebaseAuth (= 4.4.2)
   - Firebase/Core (4.8.2):
     - FirebaseAnalytics (= 4.0.9)
     - FirebaseCore (= 4.0.14)
   - Firebase/Firestore (4.8.2):
     - Firebase/Core
     - FirebaseFirestore (= 0.10.0)
+  - Firebase/Storage (4.8.2):
+    - Firebase/Core
+    - FirebaseStorage (= 2.1.2)
   - FirebaseAnalytics (4.0.9):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.4.2):
-    - FirebaseAnalytics (~> 4.0)
-    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
-    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (4.0.14):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseFirestore (0.10.0):
@@ -33,17 +29,17 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (2.0.8):
     - FirebaseCore (~> 4.0)
+  - FirebaseStorage (2.1.2):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI/Storage (4.5.1):
+    - Firebase/Storage (~> 4.0)
+    - SDWebImage (~> 4.0)
   - FSCalendar (2.7.9)
-  - GoogleToolboxForMac/DebugUtils (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
   - GoogleToolboxForMac/NSData+zlib (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - gRPC (1.8.4):
     - gRPC-RxLibrary (= 1.8.4)
     - gRPC/Main (= 1.8.4)
@@ -77,21 +73,22 @@ PODS:
   - SDWebImage/Core (4.2.3)
 
 DEPENDENCIES:
-  - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Storage
+  - FirebaseUI/Storage
   - FSCalendar
   - MBProgressHUD (~> 1.0.0)
-  - SDWebImage (~> 4.0)
 
 SPEC CHECKSUMS:
   BoringSSL: f3d6b8ce199b9c450a8cfc14895d07a2627fc232
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
-  FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
   FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
   FirebaseFirestore: 713f0c555e7af5ac03d0fec0e2477c48857f4977
   FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  FirebaseStorage: 181bb543d39ee3c53e0558de7ba86b1286a0427f
+  FirebaseUI: 1dc9c8a87a776b488a28a28541f029e60c824cfd
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   gRPC: 572520c17b794362388d5c95396329592a3c199b
@@ -105,6 +102,6 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: 9edfa792c1b21f8b07c36feba0a2fe77dc906bb7
+PODFILE CHECKSUM: 33de9c512016ff8f4a222e1e12b28dbab80a234c
 
 COCOAPODS: 1.2.1

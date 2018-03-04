@@ -8,8 +8,9 @@
 
 import Foundation
 import Firebase
-import FirebaseAuth
+import FirebaseStorage
 import UserNotifications
+
 
 protocol DoctorsViewModelInterface {
     func loadDoctors ()
@@ -18,7 +19,7 @@ protocol DoctorsViewModelInterface {
     
     func getDoctorsCount () -> Int
     func getDoctorName(at index: Int) -> String
-    func getImageUrl(at index: Int) -> URL?
+    func getImageUrl(at index: Int) -> StorageReference
 }
 
 class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
@@ -29,16 +30,20 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     let patientId = "sk132GM6DJ56H7qICzqt"
     let db = Firestore.firestore()
     
+    let storage = Storage.storage()
+    
     func loadDoctors() {
         
-        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
-            if let error = error {
-                self.view.displayError(with: error.localizedDescription)
-            }else {
-                // user is logged in, load the data
-                self.loadDoctorsDocument()
-            }
-        }
+//        Auth.auth().signIn(withEmail: "patient@app.com", password: "passowrd") { (user, error) in
+//            if let error = error {
+//                self.view.displayError(with: error.localizedDescription)
+//            }else {
+//                // user is logged in, load the data
+//                self.loadDoctorsDocument()
+//            }
+//        }
+        
+        loadDoctorsDocument()
     }
     
     func loadDoctorsDocument () {
@@ -73,7 +78,6 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
             if dateIsAVailable {
                 // Create the reservation
                 self.createReservationDocument(for: doctor.id, at: date)
-                
                 return
             }
             // date is not valid
@@ -126,11 +130,10 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         return doctors[index].name
     }
     
-    func getImageUrl(at index: Int) -> URL? {
-        guard let urlString = doctors[index].imageUrl else {
-            return nil
-        }
-        return URL(string: urlString)
+    func getImageUrl(at index: Int) -> StorageReference {
+        
+        let storageRef = storage.reference()
+        return storageRef.child("\(doctors[index].imageUrl)")
     }
  
 }

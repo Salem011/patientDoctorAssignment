@@ -8,7 +8,7 @@
 
 import UIKit
 import MBProgressHUD
-import SDWebImage
+import FirebaseStorageUI
 
 
 private let reuseIdentifier = "doctorCell"
@@ -50,7 +50,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DoctorViewCell
     
         cell.doctorNameLabel.text = viewModel.getDoctorName(at: indexPath.row)
-        cell.doctorImageView.sd_setImage(with: viewModel.getImageUrl(at: indexPath.row), completed: nil)
+        cell.doctorImageView.sd_setImage(with: viewModel.getImageUrl(at: indexPath.row), placeholderImage: nil)
         
         return cell
     }
