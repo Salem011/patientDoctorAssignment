@@ -10,7 +10,7 @@ import UIKit
 
 class AppointmentsRouter {
     
-    static func instantiateDoctorsViewController () -> UIViewController {
+    static func instantiateAppointmentsViewController () -> UIViewController {
         
         let appointmentsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppointmentsViewController") as! AppointmentsViewController
         

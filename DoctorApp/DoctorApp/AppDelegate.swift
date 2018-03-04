@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
         FirebaseApp.configure()
+        
+        let rootVc = AppointmentsRouter.instantiateAppointmentsViewController()
+        if let window = self.window {
+            window.rootViewController = rootVc
+        }
+        
         return true
     }
 
