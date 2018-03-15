@@ -54,23 +54,21 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     func createAppointment(for drIndex: Int, at date: String) {
         let doctor = doctors[drIndex]
       
-        // Retrieve all reservations for the selected Dr and check if the selected date is not taken by any other reservation
-        db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).getDocuments { (snapshot, error) in
-            var dateIsAvailable = true
-            for reservation in snapshot!.documents {
-                if let reservationDate = reservation.data()["date"] as? String, reservationDate == date {
-                    dateIsAvailable = false
-                    self.view.displayError(with: "The appointment's date is not available. Please select another date")
-                    break
-                }
+        db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).whereField("date", isEqualTo: date).getDocuments { (snapshot, error) in
+            
+            guard let reservations = snapshot?.documents else {
+                self.view.displayError(with: error?.localizedDescription ?? "Error Retrieving data")
+                return
             }
             
-            // Create the reservation
-            if dateIsAvailable {
-                self.createReservationDocument(for: doctor.id, at: date)
+            if reservations.count > 0 {
+                self.view.displayError(with: "The appointment's date is not available. Please select another date")
+                return
             }
+    
+            self.createReservationDocument(for: doctor.id, at: date)
         }
-        
+    
     }
     
     func createReservationDocument (for doctorId: String, at date: String) {
