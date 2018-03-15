@@ -43,14 +43,14 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getDoctorsCount()
+        return viewModel.doctorsCount()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DoctorViewCell
     
-        cell.doctorNameLabel.text = viewModel.getDoctorName(at: indexPath.row)
-        cell.doctorImageView.sd_setImage(with: viewModel.getImageUrl(at: indexPath.row), placeholderImage: nil)
+        cell.doctorNameLabel.text = viewModel.doctorName(at: indexPath.row)
+        cell.doctorImageView.sd_setImage(with: viewModel.doctorImageUrl(at: indexPath.row), placeholderImage: nil)
         
         return cell
     }

@@ -17,9 +17,9 @@ protocol DoctorsViewModelInterface {
     func loadDoctors ()
     func createAppointment(for drIndex: Int, at date: String)
     
-    func getDoctorsCount () -> Int
-    func getDoctorName(at index: Int) -> String
-    func getImageUrl(at index: Int) -> StorageReference
+    func doctorsCount () -> Int
+    func doctorName(at index: Int) -> String
+    func doctorImageUrl(at index: Int) -> StorageReference
 }
 
 class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
@@ -111,15 +111,15 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     }
     
     // MARK: - View Helping Functions
-    func getDoctorsCount() -> Int {
+    func doctorsCount() -> Int {
         return doctors.count
     }
     
-    func getDoctorName(at index: Int) -> String {
+    func doctorName(at index: Int) -> String {
         return doctors[index].name
     }
     
-    func getImageUrl(at index: Int) -> StorageReference {
+    func doctorImageUrl(at index: Int) -> StorageReference {
         let storageRef = storage.reference()
         return storageRef.child("\(doctors[index].imageUrl)")
     }
