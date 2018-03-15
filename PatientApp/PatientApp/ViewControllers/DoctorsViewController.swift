@@ -17,7 +17,7 @@ protocol DoctorsViewInterface {
     func doctorsAreLoaded ()
     func displayError(with message: String)
     
-    func appointmentCreated ()
+    func reservationCreated ()
 }
 
 class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, CalendarDelegate {
@@ -67,7 +67,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     func didSelectDate(date: String) {
         print("Selected Date for appointment: \(date)")
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        viewModel.createAppointment(for: currentSelectedDrIndex, at: date)
+        viewModel.createReservation(for: currentSelectedDrIndex, at: date)
     }
     
     // MARK: - DoctorsViewInterface
@@ -83,7 +83,7 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
         self.present(alert, animated: true, completion: nil)
     }
     
-    func appointmentCreated() {
+    func reservationCreated() {
         MBProgressHUD.hide(for: self.view, animated: true)
         let alert = UIAlertController(title: "Success", message: "Appointment Created Successfuly. You will receive a notification once the dr accepts/rejects it", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

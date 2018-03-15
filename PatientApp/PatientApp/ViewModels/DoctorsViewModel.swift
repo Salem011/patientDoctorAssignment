@@ -15,7 +15,7 @@ import UserNotifications
 protocol DoctorsViewModelInterface {
     
     func loadDoctors ()
-    func createAppointment(for drIndex: Int, at date: String)
+    func createReservation(for drIndex: Int, at date: String)
     
     func doctorsCount () -> Int
     func doctorName(at index: Int) -> String
@@ -50,8 +50,8 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
         }
     }
     
-    // MARK: - Appointments
-    func createAppointment(for drIndex: Int, at date: String) {
+    // MARK: - Reservations
+    func createReservation(for drIndex: Int, at date: String) {
         let doctor = doctors[drIndex]
       
         db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).whereField("date", isEqualTo: date).getDocuments { (snapshot, error) in
@@ -80,7 +80,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
                 return
             }
             
-            self.view.appointmentCreated()
+            self.view.reservationCreated()
             // Listen to the reservation status modification
             self.db.collection("reservations").document("\(reservation!.documentID)").addSnapshotListener({ (snapshot, error) in
                 if let newStatus = snapshot?.data()?["status"] as? String, newStatus != "pending" {
