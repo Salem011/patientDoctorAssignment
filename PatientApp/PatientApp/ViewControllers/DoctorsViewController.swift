@@ -28,9 +28,9 @@ class DoctorsViewController: UICollectionViewController, DoctorsViewInterface, C
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        let collectioViewLayout = UICollectionViewFlowLayout()
-        collectioViewLayout.itemSize = CGSize(width: 140, height: 140)
-        collectionView!.collectionViewLayout = collectioViewLayout
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.itemSize = CGSize(width: 140, height: 140)
+        collectionView!.collectionViewLayout = collectionViewLayout
         
         self.title = "Find a Doctor"
         MBProgressHUD.showAdded(to: self.view, animated: true)
