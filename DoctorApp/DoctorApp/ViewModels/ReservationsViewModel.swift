@@ -46,7 +46,7 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
                     self.reservations.append(reservation)
                 }
             }
-            self.view.appointmentsAreLoaded()
+            self.view.reservationsAreLoaded()
         }
     }
     

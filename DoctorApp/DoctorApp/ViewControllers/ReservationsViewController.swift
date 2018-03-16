@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 protocol ReservationsViewInterface {
-    func appointmentsAreLoaded ()
+    func reservationsAreLoaded ()
     func displayError(with message: String)
     
     func displayNotificationAlert (with message: String)
@@ -57,7 +57,7 @@ class ReservationsViewController: UITableViewController, ReservationsViewInterfa
     }
     
     // MARK: - View Interface Delegate
-    func appointmentsAreLoaded() {
+    func reservationsAreLoaded() {
         MBProgressHUD.hide(for: view, animated: true)
         self.tableView.reloadData()
     }
