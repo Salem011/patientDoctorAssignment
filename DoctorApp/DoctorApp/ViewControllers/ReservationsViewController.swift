@@ -18,7 +18,7 @@ protocol ReservationsViewInterface {
 
 class ReservationsViewController: UITableViewController, ReservationsViewInterface {
 
-    var viewModel: AppointmentsViewModelInterface!
+    var viewModel: ReservationsViewModelInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()

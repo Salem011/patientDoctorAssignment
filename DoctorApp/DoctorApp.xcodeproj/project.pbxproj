@@ -12,10 +12,10 @@
 		4F22B1B1204BAF9D00682E93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1AF204BAF9D00682E93 /* Main.storyboard */; };
 		4F22B1B3204BAF9D00682E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1B2204BAF9D00682E93 /* Assets.xcassets */; };
 		4F22B1B6204BAF9D00682E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1B4204BAF9D00682E93 /* LaunchScreen.storyboard */; };
-		4F22B1C5204BB1D300682E93 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C4204BB1D300682E93 /* AppointmentsViewController.swift */; };
+		4F22B1C5204BB1D300682E93 /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C4204BB1D300682E93 /* ReservationsViewController.swift */; };
 		4F22B1C7204BB42800682E93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */; };
-		4F22B1C9204BB57600682E93 /* AppointmentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C8204BB57600682E93 /* AppointmentsRouter.swift */; };
-		4F22B1CB204BB6CA00682E93 /* AppointmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CA204BB6CA00682E93 /* AppointmentsViewModel.swift */; };
+		4F22B1C9204BB57600682E93 /* ReservationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C8204BB57600682E93 /* ReservationsRouter.swift */; };
+		4F22B1CB204BB6CA00682E93 /* ReservationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CA204BB6CA00682E93 /* ReservationsViewModel.swift */; };
 		4F22B1CD204BB8F700682E93 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CC204BB8F700682E93 /* Appointment.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +27,10 @@
 		4F22B1B2204BAF9D00682E93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F22B1B5204BAF9D00682E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F22B1B7204BAF9D00682E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F22B1C4204BB1D300682E93 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
+		4F22B1C4204BB1D300682E93 /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4F22B1C8204BB57600682E93 /* AppointmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsRouter.swift; sourceTree = "<group>"; };
-		4F22B1CA204BB6CA00682E93 /* AppointmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewModel.swift; sourceTree = "<group>"; };
+		4F22B1C8204BB57600682E93 /* ReservationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsRouter.swift; sourceTree = "<group>"; };
+		4F22B1CA204BB6CA00682E93 /* ReservationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewModel.swift; sourceTree = "<group>"; };
 		4F22B1CC204BB8F700682E93 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		4F22B1CF204BBABF00682E93 /* DoctorApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoctorApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +114,7 @@
 		4F22B1BE204BB10500682E93 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4F22B1C4204BB1D300682E93 /* AppointmentsViewController.swift */,
+				4F22B1C4204BB1D300682E93 /* ReservationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 		4F22B1C0204BB11800682E93 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4F22B1CA204BB6CA00682E93 /* AppointmentsViewModel.swift */,
+				4F22B1CA204BB6CA00682E93 /* ReservationsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 		4F22B1C3204BB17500682E93 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				4F22B1C8204BB57600682E93 /* AppointmentsRouter.swift */,
+				4F22B1C8204BB57600682E93 /* ReservationsRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -282,10 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F22B1CB204BB6CA00682E93 /* AppointmentsViewModel.swift in Sources */,
-				4F22B1C9204BB57600682E93 /* AppointmentsRouter.swift in Sources */,
+				4F22B1CB204BB6CA00682E93 /* ReservationsViewModel.swift in Sources */,
+				4F22B1C9204BB57600682E93 /* ReservationsRouter.swift in Sources */,
 				4F22B1AC204BAF9D00682E93 /* AppDelegate.swift in Sources */,
-				4F22B1C5204BB1D300682E93 /* AppointmentsViewController.swift in Sources */,
+				4F22B1C5204BB1D300682E93 /* ReservationsViewController.swift in Sources */,
 				4F22B1CD204BB8F700682E93 /* Appointment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

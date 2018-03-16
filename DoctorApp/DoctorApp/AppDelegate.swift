@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         FirebaseApp.configure()
         
-        let rootVc = AppointmentsRouter.instantiateAppointmentsViewController()
+        let rootVc = ReservationsRouter.instantiateReservationsViewController()
         if let window = self.window {
             window.rootViewController = rootVc
         }

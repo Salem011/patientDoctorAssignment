@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 
 
-protocol AppointmentsViewModelInterface {
+protocol ReservationsViewModelInterface {
     func loadAppointments ()
     func listenForMyAppointments ()
     func updateReservationStatus(to newStatus: String)
@@ -21,7 +21,7 @@ protocol AppointmentsViewModelInterface {
 }
 
 
-class AppointmentsViewModel: NSObject, AppointmentsViewModelInterface {
+class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
 
     var view: ReservationsViewInterface!
     let db = Firestore.firestore()
