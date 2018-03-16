@@ -55,11 +55,18 @@ class AppointmentsViewModel: NSObject, AppointmentsViewModelInterface {
             guard let snapshot = querySnapshot else {
                 return
             }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
             snapshot.documentChanges.forEach({ (change) in
                 if change.type == .added && change.document.data()["status"] as! String == "pending" {
                     self.createdReservationDocId = change.document.documentID
                     let docData = change.document.data()
-                    self.view.displayNotificationAlert(with: "The patient: \(docData["patientId"] as? String ?? "N/A") requested an appointment at: \(docData["date"] as? String ?? "N/A")")
+                    var reservationDate :String?
+                    if let date = docData["date"] as? Date {
+                        reservationDate = dateFormatter.string(from: date)
+                    }
+                    self.view.displayNotificationAlert(with: "The patient: \(docData["patientId"] as? String ?? "N/A") requested an appointment at: \(reservationDate ?? "N/A")")
                 }
             })
             

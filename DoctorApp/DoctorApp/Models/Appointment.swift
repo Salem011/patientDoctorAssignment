@@ -20,7 +20,7 @@ struct Appointment {
         guard let doctorId = dictionary["doctorId"] as? String,
             let patientId = dictionary["patientId"] as? String,
             let status = dictionary["status"] as? String,
-            let date = dictionary["date"] as? String else {
+            let date = dictionary["date"] as? Date else {
                 return nil
         }
         
@@ -28,7 +28,9 @@ struct Appointment {
         self.doctorId = doctorId
         self.patientId = patientId
         self.status = status
-        self.date = date 
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        self.date = formatter.string(from: date)
     }
     
     
