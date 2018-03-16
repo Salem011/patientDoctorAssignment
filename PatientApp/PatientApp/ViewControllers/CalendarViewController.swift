@@ -22,6 +22,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.dateFormat = "dd-MM-yyyy"
+        formatter.timeZone = TimeZone.current
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +37,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
             displayErrorAlert()
             return
         }
-        displayConfirmationAlert(for: date)
+        let dateString = formatter.string(from: date)
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        let dateInUTC = formatter.date(from: dateString)!
+        displayConfirmationAlert(for: dateInUTC)
     }
     
     // MARK: - Helping Functions
