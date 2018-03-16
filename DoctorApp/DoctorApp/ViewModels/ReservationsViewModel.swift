@@ -11,13 +11,13 @@ import FirebaseFirestore
 
 
 protocol ReservationsViewModelInterface {
-    func loadAppointments ()
-    func listenForMyAppointments ()
+    func loadReservations ()
+    func listenForMyReservations ()
     func updateReservationStatus(to newStatus: String)
     
-    func getAppointmentsCount () -> Int
-    func getTitleTextForAppointment(at index: Int) -> String
-    func getDetailedTextForAppointment(at index: Int) -> String 
+    func reservationsCount () -> Int
+    func titleTextForReservation(at index: Int) -> String
+    func detailedTextForReservation(at index: Int) -> String
 }
 
 
@@ -27,11 +27,11 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
     let db = Firestore.firestore()
 
     let currentDoctorId = "AAN4qeFVS4IxGzCkkSq0"
-    var appointments = [Reservation]()
+    var reservations = [Reservation]()
     
     var createdReservationDocId = ""
     
-    func loadAppointments() {
+    func loadReservations() {
         db.collection("reservations").whereField("doctorId", isEqualTo: currentDoctorId).getDocuments { (snapshot, error) in
             
             if let error = error {
@@ -42,15 +42,15 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
             
             for document in snapshot!.documents {
                 print("\(document.documentID) => \(document.data())")
-                if let appointment = Reservation(id: document.documentID, dictionary: document.data()) {
-                    self.appointments.append(appointment)
+                if let reservation = Reservation(id: document.documentID, dictionary: document.data()) {
+                    self.reservations.append(reservation)
                 }
             }
             self.view.appointmentsAreLoaded()
         }
     }
     
-    func listenForMyAppointments() {
+    func listenForMyReservations() {
         db.collection("reservations").whereField("doctorId", isEqualTo: currentDoctorId).addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 return
@@ -80,17 +80,17 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
         db.collection("reservations").document(createdReservationDocId).setData(["status": newStatus], options: SetOptions.merge())
     }
     
-    func getAppointmentsCount() -> Int {
-        return appointments.count
+    func reservationsCount() -> Int {
+        return reservations.count
     }
     
-    func getTitleTextForAppointment(at index: Int) -> String {
-        return "Appointment Status: \(appointments[index].status)"
+    func titleTextForReservation(at index: Int) -> String {
+        return "Appointment Status: \(reservations[index].status)"
     }
     
-    func getDetailedTextForAppointment(at index: Int) -> String {
-        let appointment = appointments[index]
-        return "at: \(appointment.date), from patient: \(appointment.patientId)"
+    func detailedTextForReservation(at index: Int) -> String {
+        let reservation = reservations[index]
+        return "at: \(reservation.date), from patient: \(reservation.patientId)"
     }
     
 }

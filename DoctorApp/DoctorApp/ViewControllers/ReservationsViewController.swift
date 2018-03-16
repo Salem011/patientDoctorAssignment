@@ -28,8 +28,8 @@ class ReservationsViewController: UITableViewController, ReservationsViewInterfa
         self.title = "Appointments"
         
         MBProgressHUD.showAdded(to: view, animated: true)
-        viewModel.loadAppointments()
-        viewModel.listenForMyAppointments()
+        viewModel.loadReservations()
+        viewModel.listenForMyReservations()
     }
 
 
@@ -40,15 +40,15 @@ class ReservationsViewController: UITableViewController, ReservationsViewInterfa
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getAppointmentsCount()
+        return viewModel.reservationsCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
        
-        cell.textLabel?.text = viewModel.getTitleTextForAppointment(at: indexPath.row)
-        cell.detailTextLabel?.text = viewModel.getDetailedTextForAppointment(at: indexPath.row)
+        cell.textLabel?.text = viewModel.titleTextForReservation(at: indexPath.row)
+        cell.detailTextLabel?.text = viewModel.detailedTextForReservation(at: indexPath.row)
         return cell
     }
     
