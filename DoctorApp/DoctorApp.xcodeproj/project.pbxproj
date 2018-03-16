@@ -16,7 +16,7 @@
 		4F22B1C7204BB42800682E93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */; };
 		4F22B1C9204BB57600682E93 /* ReservationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1C8204BB57600682E93 /* ReservationsRouter.swift */; };
 		4F22B1CB204BB6CA00682E93 /* ReservationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CA204BB6CA00682E93 /* ReservationsViewModel.swift */; };
-		4F22B1CD204BB8F700682E93 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CC204BB8F700682E93 /* Appointment.swift */; };
+		4F22B1CD204BB8F700682E93 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22B1CC204BB8F700682E93 /* Reservation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		4F22B1C6204BB42800682E93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F22B1C8204BB57600682E93 /* ReservationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsRouter.swift; sourceTree = "<group>"; };
 		4F22B1CA204BB6CA00682E93 /* ReservationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewModel.swift; sourceTree = "<group>"; };
-		4F22B1CC204BB8F700682E93 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		4F22B1CC204BB8F700682E93 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		4F22B1CF204BBABF00682E93 /* DoctorApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoctorApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		673A94DE598EF7B510CD93DC /* Pods_DoctorApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0FC4DB1D7AAF053B529546 /* Pods-DoctorApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoctorApp/Pods-DoctorApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		4F22B1C1204BB12800682E93 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4F22B1CC204BB8F700682E93 /* Appointment.swift */,
+				4F22B1CC204BB8F700682E93 /* Reservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				4F22B1C9204BB57600682E93 /* ReservationsRouter.swift in Sources */,
 				4F22B1AC204BAF9D00682E93 /* AppDelegate.swift in Sources */,
 				4F22B1C5204BB1D300682E93 /* ReservationsViewController.swift in Sources */,
-				4F22B1CD204BB8F700682E93 /* Appointment.swift in Sources */,
+				4F22B1CD204BB8F700682E93 /* Reservation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

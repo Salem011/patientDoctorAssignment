@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Appointment {
+struct Reservation {
     
     var id: String
     var doctorId: String

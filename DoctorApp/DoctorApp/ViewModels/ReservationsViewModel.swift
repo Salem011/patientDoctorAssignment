@@ -27,7 +27,7 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
     let db = Firestore.firestore()
 
     let currentDoctorId = "AAN4qeFVS4IxGzCkkSq0"
-    var appointments = [Appointment]()
+    var appointments = [Reservation]()
     
     var createdReservationDocId = ""
     
@@ -42,7 +42,7 @@ class ReservationsViewModel: NSObject, ReservationsViewModelInterface {
             
             for document in snapshot!.documents {
                 print("\(document.documentID) => \(document.data())")
-                if let appointment = Appointment(id: document.documentID, dictionary: document.data()) {
+                if let appointment = Reservation(id: document.documentID, dictionary: document.data()) {
                     self.appointments.append(appointment)
                 }
             }
