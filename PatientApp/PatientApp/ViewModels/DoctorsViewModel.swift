@@ -15,7 +15,7 @@ import UserNotifications
 protocol DoctorsViewModelInterface {
     
     func loadDoctors ()
-    func createReservation(for drIndex: Int, at date: String)
+    func createReservation(for drIndex: Int, at date: Date)
     
     func doctorsCount () -> Int
     func doctorName(at index: Int) -> String
@@ -51,7 +51,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     }
     
     // MARK: - Reservations
-    func createReservation(for drIndex: Int, at date: String) {
+    func createReservation(for drIndex: Int, at date: Date) {
         let doctor = doctors[drIndex]
       
         db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).whereField("date", isEqualTo: date).getDocuments { (snapshot, error) in
@@ -71,7 +71,7 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     
     }
     
-    func createReservationDocument (for doctorId: String, at date: String) {
+    func createReservationDocument (for doctorId: String, at date: Date) {
         var reservation: DocumentReference? = nil
         reservation = db.collection("reservations").addDocument(data: ["doctorId": doctorId, "patientId": patientId, "date": date, "status": "pending"]) { (error) in
             
