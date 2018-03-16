@@ -12,7 +12,7 @@ class AppointmentsRouter {
     
     static func instantiateAppointmentsViewController () -> UIViewController {
         
-        let appointmentsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppointmentsViewController") as! AppointmentsViewController
+        let appointmentsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReservationsViewController") as! ReservationsViewController
         
         let viewModel = AppointmentsViewModel()
         appointmentsVC.viewModel = viewModel

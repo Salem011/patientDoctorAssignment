@@ -23,7 +23,7 @@ protocol AppointmentsViewModelInterface {
 
 class AppointmentsViewModel: NSObject, AppointmentsViewModelInterface {
 
-    var view: AppointmentsViewInterface!
+    var view: ReservationsViewInterface!
     let db = Firestore.firestore()
 
     let currentDoctorId = "AAN4qeFVS4IxGzCkkSq0"

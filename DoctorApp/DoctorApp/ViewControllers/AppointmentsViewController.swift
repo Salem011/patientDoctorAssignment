@@ -9,14 +9,14 @@
 import UIKit
 import MBProgressHUD
 
-protocol AppointmentsViewInterface {
+protocol ReservationsViewInterface {
     func appointmentsAreLoaded ()
     func displayError(with message: String)
     
     func displayNotificationAlert (with message: String)
 }
 
-class AppointmentsViewController: UITableViewController, AppointmentsViewInterface {
+class ReservationsViewController: UITableViewController, ReservationsViewInterface {
 
     var viewModel: AppointmentsViewModelInterface!
     
