@@ -54,7 +54,9 @@ class DoctorsViewModel: NSObject, DoctorsViewModelInterface {
     func createReservation(for drIndex: Int, at date: Date) {
         let doctor = doctors[drIndex]
       
-        db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).whereField("date", isEqualTo: date).getDocuments { (snapshot, error) in
+        let dayAfterPickedDate = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+
+        db.collection("reservations").whereField("doctorId", isEqualTo: doctor.id).whereField("date", isGreaterThanOrEqualTo: date).whereField("date", isLessThan: dayAfterPickedDate).getDocuments { (snapshot, error) in
             
             guard let reservations = snapshot?.documents else {
                 self.view.displayError(with: error?.localizedDescription ?? "Error Retrieving data")
